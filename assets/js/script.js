@@ -22,9 +22,9 @@ $(document).ready(function () {
 
 $(document).ready(function () {
     setTimeout(function () {
-        $(".create-music").addClass("start-anime");
+        $(".banner-main").addClass("start-anime");
         $("header").addClass("header-anime");
-    }, 900);
+    }, 500);
 });
 
 const revealOnScroll = () => {
@@ -97,27 +97,23 @@ $('.menu-scroll a').click(function() {
 
 
 
-let possSwiper = new Swiper(".poss-slider", {
-    slidesPerView: 2,
-    spaceBetween: 20,
-    pagination: {
-        el: ".poss-pagination",
-        clickable: true,
-    },
+
+
+
+let improveSwiper = new Swiper(".improve-slider", {
+    slidesPerView: 2.2,
+    spaceBetween: 12,
     breakpoints: {
         1020: {
-            slidesPerView: 2,
+            slidesPerView: 2.2,
             slidesPerGroup: 1,
-            spaceBetween: 30,
+            spaceBetween: 12,
         },
         760: {
             slidesPerView: 2,
             slidesPerGroup: 1,
             spaceBetween: 30,
-            loop: true,
-
         },
-
         320: {
             slidesPerView: 1,
             slidesPerGroup: 1,
@@ -125,144 +121,8 @@ let possSwiper = new Swiper(".poss-slider", {
             loop: true,
         },
     },
-});
-
-let examplesSwiper = new Swiper(".examples-slider", {
-    slidesPerView: 1,
-    spaceBetween: 20,
-    pagination: {
-        el: ".examples-pagination",
-        clickable: true,
+    navigation: {
+        nextEl: ".improve-button-next",
+        prevEl: ".improve-button-prev",
     },
-
-});
-
-
-let reviewsSwiper = new Swiper(".reviews-slider", {
-    slidesPerView: 2,
-    spaceBetween: 20,
-    pagination: {
-        el: ".reviews-pagination",
-        clickable: true,
-    },
-    breakpoints: {
-        1020: {
-            slidesPerView: 2,
-            slidesPerGroup: 1,
-            spaceBetween: 30,
-        },
-        760: {
-            slidesPerView: 2,
-            slidesPerGroup: 1,
-            spaceBetween: 30,
-            loop: true,
-
-        },
-
-        320: {
-            slidesPerView: 1,
-            slidesPerGroup: 1,
-            spaceBetween: 10,
-            loop: true,
-        },
-    },
-});
-
-
-
-
-
-$('.examples-play').on('click', function () {
-    $(this).toggleClass('play-active');
-})
-
-
-
-$('.open-reviews').on('click', function () {
-    $('.reviews-btn').addClass('reviews-btn-close')
-})
-
-
-
-
-
-document.querySelectorAll('.languages-row').forEach(row => {
-    const track = row.querySelector('.languages-track');
-
-    // Дублируем содержимое для бесконечного эффекта
-    const original = track.innerHTML;
-    track.innerHTML = original + original;
-
-    // Базовая скорость (десктопная)
-    let speed = parseInt(row.getAttribute('data-speed')) || 40;
-
-    // Если мобильная версия → скорость медленнее
-    if (window.innerWidth <= 600) {
-        speed = speed * 1.8; // Увеличиваем время → анимация становится медленнее
-    }
-
-    const direction = row.getAttribute('data-direction') || 'left';
-
-    // Применяем
-    track.style.animationDuration = speed + 's';
-    track.style.animationDirection = direction === 'left' ? 'normal' : 'reverse';
-});
-
-
-
-
-
-
-
-
-
-
-
-let currentAudio = null;
-let currentBlock = null;
-
-document.querySelectorAll('.examples-play').forEach(btn => {
-    const playIcon = btn.querySelector('.play-mus');
-    const pauseIcon = btn.querySelector('.pous-mus');
-    const audioSrc = btn.dataset.audio;
-
-    btn.addEventListener('click', () => {
-
-        // Если нажали на ту же кнопку — play/pause
-        if (currentBlock === btn) {
-            if (currentAudio.paused) {
-                currentAudio.play();
-                playIcon.style.display = "none";
-                pauseIcon.style.display = "block";
-            } else {
-                currentAudio.pause();
-                playIcon.style.display = "block";
-                pauseIcon.style.display = "none";
-            }
-            return;
-        }
-
-        // Если играет другой трек — остановить
-        if (currentAudio) {
-            currentAudio.pause();
-            currentBlock.querySelector('.play-mus').style.display = "block";
-            currentBlock.querySelector('.pous-mus').style.display = "none";
-        }
-
-        // Создаем новое аудио
-        currentAudio = new Audio(audioSrc);
-        currentBlock = btn;
-
-        currentAudio.play();
-        playIcon.style.display = "none";
-        pauseIcon.style.display = "block";
-
-        // Когда трек закончится — вернуть play
-        currentAudio.onended = () => {
-            playIcon.style.display = "block";
-            pauseIcon.style.display = "none";
-            currentAudio = null;
-            currentBlock = null;
-        };
-    });
 });

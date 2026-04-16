@@ -1,11 +1,19 @@
-header{
+header {
     position: absolute;
     z-index: 91;
     left: 0;
     top: 0;
-    transition: 0.4s;
     width: 100%;
+    transform: translateY(-150px);
+    transition: 0.7s;
+    opacity: 0;
 }
+.header-anime{
+    transform: translateY(0);
+    transition: 0.9s;
+    opacity: 1;
+}
+
 
 .header-main{
     width: 100%;
