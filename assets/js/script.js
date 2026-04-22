@@ -126,3 +126,156 @@ let improveSwiper = new Swiper(".improve-slider", {
         prevEl: ".improve-button-prev",
     },
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function updateReveal() {
+    const winH = window.innerHeight;
+
+    document.querySelectorAll('[data-para]').forEach(para => {
+        const words = para.querySelectorAll('.word');
+        const icons = para.querySelectorAll('[data-icon]');
+        const rect  = para.getBoundingClientRect();
+        const total = words.length;
+
+        const triggerStart = winH * 0.88;
+        const triggerEnd   = winH * 0.05;
+        const range        = triggerStart - triggerEnd;
+        const progress     = Math.min(1, Math.max(0, (triggerStart - rect.top) / range));
+        const litCount     = Math.round(progress * total);
+
+        words.forEach((word, i) => {
+            if (i < litCount) word.classList.add('lit');
+            else word.classList.remove('lit');
+        });
+
+        // icon follows progress too
+        icons.forEach(icon => {
+            if (progress > 0.08) icon.classList.add('lit');
+            else icon.classList.remove('lit');
+        });
+    });
+}
+
+window.addEventListener('scroll', updateReveal, { passive: true });
+window.addEventListener('resize', updateReveal, { passive: true });
+updateReveal();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(function () {
+    var STEP_DURATION = 4000; // ms — сколько длится один шаг
+    var steps = document.querySelectorAll('.step-item');
+    var slides = document.querySelectorAll('.slide');
+    var current = 0;
+    var timer = null;
+    var startTime = null;
+    var rafId = null;
+
+    function goTo(index) {
+        // Убрать активный класс у всех
+        steps.forEach(function (s) {
+            s.classList.remove('active');
+            s.querySelector('.step-line-fill').style.width = '0%';
+        });
+        slides.forEach(function (s) {
+            s.classList.remove('active');
+        });
+
+        current = index;
+
+        steps[current].classList.add('active');
+        slides[current].classList.add('active');
+
+        // Запустить прогресс
+        startTime = performance.now();
+        if (rafId) cancelAnimationFrame(rafId);
+        animateLine();
+    }
+
+    function animateLine() {
+        var fill = steps[current].querySelector('.step-line-fill');
+        var elapsed = performance.now() - startTime;
+        var progress = Math.min(elapsed / STEP_DURATION, 1);
+
+        fill.style.width = (progress * 100) + '%';
+
+        if (progress < 1) {
+            rafId = requestAnimationFrame(animateLine);
+        } else {
+            // Перейти к следующему
+            var next = (current + 1) % steps.length;
+            goTo(next);
+        }
+    }
+
+    // Клик по шагу
+    steps.forEach(function (s, i) {
+        s.addEventListener('click', function () {
+            if (rafId) cancelAnimationFrame(rafId);
+            goTo(i);
+        });
+    });
+
+    // Старт
+    goTo(0);
+})();

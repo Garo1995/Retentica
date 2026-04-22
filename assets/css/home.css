@@ -274,7 +274,14 @@ p{
     font-size: 15px;
     line-height: 130%;
 }
-
+.gambling-rocket {
+    position: absolute;
+    top: 148px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    width: 130px;
+}
 
 
 
@@ -388,37 +395,321 @@ p{
 
 
 
+
+
+
+
+
+
 .retentica-main{
-    padding: 290px 0 120px;
+    padding: 32px 0 0;
 }
+
+.retent-work-tit{
+    gap: 24px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== STEPS SLIDER ===== */
+.steps-slider {
+    width: 100%;
+    margin-top: 40px;
+}
+
+/* --- Slides wrapper --- */
+.slides-wrapper {
+    position: relative;
+    width: 100%;
+    height: 440px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.7s ease;
+    pointer-events: none;
+}
+
+.slide.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+.slide img{
+    border-radius: 16px;
+}
+
+
+/* --- Steps nav --- */
+.steps-nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 40px;
+    gap: 40px;
+}
+
+.step-item {
+    opacity: 0.35;
+    transition: opacity 0.4s ease;
+    cursor: pointer;
+    max-width: 220px;
+    width: 100%;
+}
+.step-item.active { opacity: 1; }
+
+/* Step top: label + line */
+.step-top {
+    margin-bottom: 14px;
+}
+
+.step-label {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 1);
+    white-space: nowrap;
+    transition: color 0.4s ease;
+    margin-top: 16px;
+    display: block;
+}
+.step-item.active .step-label {
+    color: #ffffff;
+}
+.step-content{
+    margin-top: 40px;
+}
+/* Progress line */
+.step-line {
+    flex: 1;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.step-line-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #7c3aed, #a78bfa);
+    border-radius: 2px;
+    transition: none;
+}
+
+/* Step content */
+.step-title {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 100%;
+    color: #ffffff;
+    margin: 0 0 12px;
+}
+
+.step-desc {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 115%;
+    color: #ffffff;
+    margin: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.marquee-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 28s linear infinite;
+}
+
+.marquee-item {
+    display: flex;
+    align-items: center;
+    gap: 52px;
+    padding-right: 4rem;
+    white-space: nowrap;
+    font-weight: 300;
+    font-size: 124px;
+    line-height: 100%;
+    vertical-align: middle;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #FFFFFF 0%, #B574F7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.marquee-dot {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    flex-shrink: 0;
+}
+
+@keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .retentica-info{
     max-width: 640px;
     width: 100%;
-    margin: 0 auto;
+    margin: 120px auto 0;
 }
-.retentica-text{
-    margin-top: 24px;
+
+
+
+
+.content-block {
+    position: relative;
+    z-index: 1;
 }
-.retentica-text p{
+
+.heading {
+    font-size: clamp(1.9rem, 4vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+}
+
+.heading .word {
+    display: inline;
+    font-weight: 600;
+    font-size: 54px;
+    line-height: 100%;
+    transition: color 0.3s ease;
+    margin-right: 0.25em;
+}
+
+.heading .word.lit {
+    color: #FFFFFF;
+}
+
+.body-text {
     font-weight: 500;
     font-size: 28px;
     line-height: 54px;
-    color: #FFFFFF;
+    margin-bottom: 1.6rem;
+    letter-spacing: 0.01em;
 }
-.retentica-icon{
-    background: #060608;
-    border: 1px solid #202534;
+
+.body-text .word {
+    display: inline;
+    color: rgba(255,255,255,0.18);
+    transition: color 0.3s ease;
+    margin-right: 0.25em;
+}
+
+.body-text .word.lit {
+    color: rgba(255,255,255,1);
+}
+
+.word-icon {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+    margin-right: 0.25em;
+    position: relative;
+    top: -1px;
+}
+
+.word-icon svg {
     width: 52px;
     height: 52px;
-    gap: 10px;
-    border-radius: 16px;
-    padding: 12px;
+    opacity: 0;
+    transform: scale(0.5) rotate(-20deg);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
 
-    display: inline-flex;
+.word-icon.lit svg {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
 }
-.icon-analyze{
-    content: url("../img/analyze.svg");
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .retentica-names{
     margin-top: 24px;
@@ -440,6 +731,22 @@ p{
 .retentica-names ul li img{
     width: 38px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -509,6 +816,33 @@ p{
 .identify-diagram img{
     width: 100%;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.retent-works{
+    margin-top: 160px;
+}
+
+.retent-works h2{
+    text-align: center;
+}
+
+
+
+
+
+
 
 
 
@@ -999,6 +1333,7 @@ p{
 
 .accordion-main{
     background: rgba(9, 11, 13, 1);
+    padding-bottom: 24px;
 }
 
 .accordion-main:after{
@@ -1010,7 +1345,7 @@ p{
     background-image: url("../img/gra-faq.png");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 600px;
+    height: 510px;
 
 }
 
@@ -1135,33 +1470,8 @@ p{
 
 
 
-.run-strock{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 52px;
+.accordion-main .marquee-wrapper{
     margin-top: 140px;
-    padding-bottom: 20px;
-}
-
-.run-strock strong{
-    font-weight: 300;
-    font-size: 124px;
-    line-height: 100%;
-    text-transform: uppercase;
-    background: linear-gradient(90deg, #FFFFFF 0%, #D2ACF9 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
-}
-
-.run-circle{
-    background: rgba(255, 255, 255, 1);
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    display: flex;
 }
 
 
@@ -1184,25 +1494,39 @@ footer{
     background-size: cover;
     width: 100%;
 }
-.footer-main{
-    gap: 40px;
+footer:after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-image: url("../img/footer-vand.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 299px;
+    height: 298px;
 }
 .footer-main h2{
     text-align: center;
     max-width: 640px;
     width: 100%;
 }
-
+.logo-footer{
+    max-width: 640px;
+    width: 100%;
+}
 .footer-main p{
     text-align: center;
     max-width: 464px;
     width: 100%;
     color: #FFFFFF;
+    margin-top: 40px;
 }
 
 .footer-main .predict-churn {
     opacity: 1;
     transform: unset;
+    margin-top: 40px;
+
 }
 .privacy-text{
     margin-top: 80px;
