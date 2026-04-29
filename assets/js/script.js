@@ -18,6 +18,11 @@ $(document).ready(function () {
     })
 });
 
+$(document).ready(function () {
+    $('select').styler();
+});
+
+
 
 
 $(document).ready(function () {
@@ -112,10 +117,16 @@ let improveSwiper = new Swiper(".improve-slider", {
         760: {
             slidesPerView: 2,
             slidesPerGroup: 1,
-            spaceBetween: 30,
+            spaceBetween: 12,
+        },
+        520: {
+            slidesPerView: 1.3,
+            slidesPerGroup: 1,
+            spaceBetween: 10,
+            loop: true,
         },
         320: {
-            slidesPerView: 1,
+            slidesPerView: 1.1,
             slidesPerGroup: 1,
             spaceBetween: 10,
             loop: true,
@@ -223,13 +234,13 @@ updateReveal();
 
 
 (function () {
-    var STEP_DURATION = 4000; // ms — сколько длится один шаг
-    var steps = document.querySelectorAll('.step-item');
-    var slides = document.querySelectorAll('.slide');
-    var current = 0;
-    var timer = null;
-    var startTime = null;
-    var rafId = null;
+    let STEP_DURATION = 4000; // ms — сколько длится один шаг
+    let steps = document.querySelectorAll('.step-item');
+    let slides = document.querySelectorAll('.slide');
+    let current = 0;
+    let timer = null;
+    let startTime = null;
+    let rafId = null;
 
     function goTo(index) {
         // Убрать активный класс у всех
@@ -253,9 +264,9 @@ updateReveal();
     }
 
     function animateLine() {
-        var fill = steps[current].querySelector('.step-line-fill');
-        var elapsed = performance.now() - startTime;
-        var progress = Math.min(elapsed / STEP_DURATION, 1);
+        let fill = steps[current].querySelector('.step-line-fill');
+        let elapsed = performance.now() - startTime;
+        let progress = Math.min(elapsed / STEP_DURATION, 1);
 
         fill.style.width = (progress * 100) + '%';
 
@@ -263,7 +274,7 @@ updateReveal();
             rafId = requestAnimationFrame(animateLine);
         } else {
             // Перейти к следующему
-            var next = (current + 1) % steps.length;
+            let next = (current + 1) % steps.length;
             goTo(next);
         }
     }
@@ -279,3 +290,87 @@ updateReveal();
     // Старт
     goTo(0);
 })();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const tabs      = document.querySelectorAll('.identify-click');
+const diagrams  = document.querySelectorAll('.identify-diagram');
+
+const subtitleMap = {
+    Predict : 'Identify players at risk in the next 7 days',
+    Decide  : 'Discover the right initiative before revenue benchmarks',
+    Measure : 'Track uplifts with round A/B logic and ROI reporting',
+};
+
+let current   = document.querySelector('.identify-diagram.is-active');
+let isAnimating = false;
+
+tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        const target = tab.dataset.diagram;
+
+        /* Skip if same tab or mid-animation */
+        if (tab.classList.contains('active') || isAnimating) return;
+
+        const next = document.querySelector(`.identify-diagram[data-diagram="${target}"]`);
+        if (!next) return;
+
+        isAnimating = true;
+
+        /* ── 1. Update active tab pill ── */
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+
+        /* ── 3. Exit current block to the LEFT ── */
+        current.classList.remove('is-active');
+        current.classList.add('is-exit');
+
+        /* ── 4. After exit transition, reset exit block & show next ── */
+        // slight stagger so exit plays first
+        setTimeout(() => {
+            current.classList.remove('is-exit');
+            /* put it back off-screen right for future re-entry */
+            current.style.transform = '';
+            current.style.opacity   = '';
+
+            /* Trigger next-enter */
+            next.classList.add('is-active');
+            current   = next;
+
+            /* Unlock after enter transition completes */
+            setTimeout(() => {
+                isAnimating = false;
+            }, 750);
+
+        }, 400); // half the exit duration before enter starts
+    });
+});

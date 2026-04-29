@@ -52,3 +52,33 @@ header {
     color: #FFFFFF;
     transition: 0.3s;
 }
+.btn-book:hover{
+    background: #5F29B7;
+    color: #FFFFFF;
+
+}
+.pricing-href-mob{
+    display: none;
+}
+
+@media (max-width: 767px){
+    .header-center {
+        gap: 16px;
+    }
+    .nav-menu ul {
+        gap: 14px;
+    }
+    header .btn-book{
+        display: none;
+    }
+    .nav-menu{
+        display: none;
+    }
+    .pricing-href-mob{
+        display: flex;
+        font-weight: 600;
+        font-size: 13px;
+        line-height: 21px;
+        color: rgba(255, 255, 255, 1);
+    }
+}

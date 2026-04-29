@@ -23,7 +23,8 @@
                     </ul>
                 </div>
             </div>
-            <button class="btn-book">Book a Demo</button>
+            <a href="./calculator.html" class="btn-book">Book a Demo</a>
+            <a href="./calculator.html" class="pricing-href-mob">Pricing</a>
         </div>
     </div>
 </header>
@@ -35,7 +36,7 @@
                     <h1>Predict churn before players leave.</h1>
                     <p>Retentica helps gambling and betting operators identify at-risk players, trigger the right retention actions, and prove real revenue uplift in 14 days.</p>
                     <div class="predict-churn G-align-center">
-                        <button class="btn">Book a Demo</button>
+                        <a href="./calculator.html" class="btn">Book a Demo</a>
                         <a href="#" class="roi-estmate">Run ROI estimate <i class="icon-arrow-right"></i></a>
                     </div>
                 </div>
@@ -101,7 +102,7 @@
                     <h3 class="animate-on-scroll delay-300">
                         By the time a player becomes “inactive,” it is often too late. Traditional CRM workflows rely on static segments, delayed triggers, and mass bonus campaigns. That means:
                     </h3>
-                    <div class="most-opera-items G-flex-wrap">
+                    <div class="most-opera-items G-flex">
                         <div class="most-opera-item G-flex-column G-align-start animate-on-scroll delay-300">
                             <img src="./assets/img/icon-players.svg" alt="players">
                             <h4>Players
@@ -131,6 +132,7 @@
         <div class="most-opera-right G-flex">
             <img src="./assets/img/most-fon-right.png" alt="most">
         </div>
+
     </div>
 </section>
 <section class="retentica-main">
@@ -253,17 +255,37 @@
 
 <section class="identify-players">
     <div class="container">
-        <div class="identify-link animate-on-scroll delay-100">
+        <div class="identify-link">
             <ul>
-                <li class="active">Predict</li>
-                <li>Decide</li>
-                <li>Measure</li>
+                <li class="identify-click active" data-diagram="Predict">Predict</li>
+                <li class="identify-click"        data-diagram="Decide">Decide</li>
+                <li class="identify-click"        data-diagram="Measure">Measure</li>
             </ul>
         </div>
-        <div class="identify-text">Identify players at risk in the next 7 days</div>
+        <div class="identify-text" >Identify players at risk in the next 7 days</div>
     </div>
-    <div class="identify-diagram G-flex">
-        <img src="./assets/img/diagram.png" alt="diagram">
+
+    <div class="identify-min" id="diagramWrapper">
+
+        <div class="identify-diagram is-active" data-diagram="Predict">
+
+            <div class="demo-box demo-predict">
+                <img src="./assets/img/diagram.svg" alt="diagram">
+            </div>
+        </div>
+
+        <div class="identify-diagram" data-diagram="Decide">
+            <div class="demo-box demo-decide">
+                <img src="./assets/img/diagram-2.svg" alt="diagram">
+            </div>
+        </div>
+
+        <div class="identify-diagram" data-diagram="Measure">
+            <div class="demo-box demo-measure">
+                <img src="./assets/img/diagram-3.svg" alt="diagram">
+            </div>
+        </div>
+
     </div>
 </section>
 
@@ -341,8 +363,9 @@
 
                 <div class="step-item" data-step="3">
                     <div class="step-top">
-                        <span class="step-label">STEP 4</span>
                         <div class="step-line"><div class="step-line-fill"></div></div>
+                        <span class="step-label">STEP 4</span>
+
                     </div>
                     <div class="step-content">
                         <h4 class="step-title">Take action</h4>
@@ -553,9 +576,9 @@
 
 <section class="accordion-main">
     <div class="container">
-        <h2>FAQ</h2>
+        <h2 class="animate-on-scroll delay-100">FAQ</h2>
         <div id="accordion" class="accordion G-flex-column">
-            <div class="accordion-box">
+            <div class="accordion-box animate-on-scroll delay-100">
                 <div class="accordion-click link">
                     <h5>What do we need to integrate?</h5>
                     <span class="accordion-plus"></span>
@@ -564,7 +587,7 @@
                     <p>Most pilots can start within days, with first measurable signals typically visible within 1–2 weeks.</p>
                 </div>
             </div>
-            <div class="accordion-box">
+            <div class="accordion-box animate-on-scroll delay-200">
                 <div class="accordion-click link">
                     <h5>Do we need to replace our CRM?</h5>
                     <span class="accordion-plus"></span>
@@ -574,7 +597,7 @@
 
                 </div>
             </div>
-            <div class="accordion-box">
+            <div class="accordion-box animate-on-scroll delay-300">
                 <div class="accordion-click link">
                     <h5>How quickly can we see results?</h5>
                     <span class="accordion-plus"></span>
@@ -584,7 +607,7 @@
 
                 </div>
             </div>
-            <div class="accordion-box">
+            <div class="accordion-box animate-on-scroll delay-400">
                 <div class="accordion-click link">
                     <h5>Is this only for casino brands?</h5>
                     <span class="accordion-plus"></span>
@@ -594,7 +617,7 @@
 
                 </div>
             </div>
-            <div class="accordion-box">
+            <div class="accordion-box animate-on-scroll delay-500">
                 <div class="accordion-click link">
                     <h5>How do you prove uplift?</h5>
                     <span class="accordion-plus"></span>

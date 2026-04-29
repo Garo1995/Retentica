@@ -156,17 +156,17 @@ body {
 }
 
 .container-large{
-    max-width: 1538px;
+    max-width: 1586px;
     width: 100%;
     margin: 0 auto;
-    padding: 0 16px;
+    padding: 0 40px;
 }
 
 .container{
-    max-width: 1032px;
+    max-width: 1080px;
     width: 100%;
     margin: 0 auto;
-    padding: 0 16px;
+    padding: 0 40px;
 }
 
 

@@ -1,0 +1,219 @@
+.calculator-main{
+    padding-top: 18px;
+    overflow: hidden;
+}
+
+.back-home{
+    gap: 4px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    color: #FFFFFF;
+}
+.icon-arrow-let{
+    content: url("../img/arrow-left.svg");
+}
+
+.calculator-boxes{
+    background: #0D0F11;
+    max-width: 740px;
+    width: 100%;
+    gap: 32px;
+    border-radius: 22px;
+    padding: 32px;
+    margin: 10px auto 0;
+    position: relative;
+}
+.calculator-boxes:before{
+    content: "";
+    background-image: url("../img/calc-fon-left.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-width: 554px;
+    width: 100%;
+    height: 419px;
+    position: absolute;
+    top: -58px;
+    left: -98px;
+    z-index: -1;
+}
+
+.calculator-boxes:after{
+    content: "";
+    background-image: url("../img/calc-fon-rigth.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-width: 135px;
+    width: 100%;
+    height: 424px;
+    position: absolute;
+    bottom: 45px;
+    right: -134px;
+    z-index: -1;
+}
+
+.run-estimate{
+    max-width: 325px;
+    width: 100%;
+}
+.run-estimate h2{
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 100%;
+}
+.calculator-inp{
+    margin-top: 24px;
+    width: 100%;
+}
+.calculator-inp small, .scenario-select small{
+    color: #FFFFFF;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 100%;
+    display: block;
+    margin-bottom: 7px;
+    opacity: 0.60;
+}
+.calculator-inp label{
+    width: 100%;
+    display: flex;
+}
+.calculator-inp input{
+    background: #101113;
+    border: 1px solid rgba(213, 171, 255, 0.24);
+    width: 100%;
+    padding: 11px 12px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 100%;
+    color: #FFFFFF;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+.calculator-inp input::placeholder{
+    opacity: 0.40;
+}
+.expected-uplift{
+    margin-top: 24px;
+    margin-bottom: 32px;
+}
+.expected-uplift .calculator-inp {
+    margin: 0;
+    width: auto;
+}
+.expected-uplift .calculator-inp input{
+    width: 136px;
+}
+.inp-select{
+    color: #FFFFFF;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    margin-top: 12px;
+}
+
+.scenario-select{
+    width: 136px;
+    margin-left: 20px;
+}
+.scenario-select label{
+    display: flex;
+    width: 100%;
+}
+
+.jq-selectbox {
+    border: 1px solid rgba(213, 171, 255, 0.72);
+    background: #1A1B1E;
+    width: 100%;
+    border-radius: 4px;
+    position: relative;
+    transition: 0.3s;
+}
+.jq-selectbox:after {
+    content: url("../img/arrow-doun.svg");
+    position: absolute;
+    top: 12px;
+    right: 12px;
+}
+.jq-selectbox__select-text{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 100%;
+    padding: 13px 12px;
+    color: #FFFFFF;
+}
+.monthly-players-box{
+    background: #17191E;
+    border: 1px solid #FFFFFF33;
+    max-width: 319px;
+    width: 100%;
+    padding: 24px;
+    border-radius: 8px;
+}
+.retentica-using{
+    margin-bottom: 24px;
+}
+.retentica-using h4{
+    margin-top: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 100%;
+    color: #FFFFFF;
+}
+.icon-relit{
+    content: url("../img/relit.svg");
+}
+
+.average-player{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+    margin-top: 12px;
+}
+.average-player:last-child{
+    border-bottom: unset;
+    padding-bottom: 0;
+
+}
+.average-player span{
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 100%;
+    color: #FFFFFF;
+    opacity: 0.60;
+}
+.average-player strong{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 100%;
+    color: #FFFFFF;
+}
+
+
+
+.jq-selectbox__dropdown {
+    border-radius: 4px;
+    font-family: 'Inter';
+    border: 1px solid rgba(213, 171, 255, 0.24);
+
+    background: #0D0F11;
+    padding: 7px 0;
+}
+
+.jq-selectbox li {
+    min-height: 18px;
+    padding: 10px 15px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 100%;
+    color: #FFFFFF;
+
+}
+
+.jq-selectbox li.selected {
+    background-color: #50596f3d;
+
+}
