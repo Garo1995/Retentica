@@ -321,56 +321,171 @@ updateReveal();
 
 
 
-const tabs      = document.querySelectorAll('.identify-click');
-const diagrams  = document.querySelectorAll('.identify-diagram');
 
-const subtitleMap = {
-    Predict : 'Identify players at risk in the next 7 days',
-    Decide  : 'Discover the right initiative before revenue benchmarks',
-    Measure : 'Track uplifts with round A/B logic and ROI reporting',
-};
 
-let current   = document.querySelector('.identify-diagram.is-active');
+
+
+
+
+
+
+
+
+
+const circleWrap = document.getElementById('circleWrap');
+const counter    = document.getElementById('counter');
+
+const MIN_VAL  = 100;
+const MAX_VAL  = 3999.99;
+const INIT_VAL = 2359.02;
+
+let currentRotation = 0;
+let targetRotation  = 0;
+let currentValue    = INIT_VAL;
+let targetValue     = INIT_VAL;
+
+/* 🔥 сильно уменьшаем влияние */
+const SCROLL_SENSITIVITY = 0.03; // чем меньше — тем медленнее
+const MAX_ROTATION = 40;         // ограничение, чтобы не "перекручивалось"
+
+const VAL_PER_DEG = (MAX_VAL - MIN_VAL) / 180;
+
+/* -------------------------------------------------- */
+/* Видимость блока                                    */
+/* -------------------------------------------------- */
+let sectionIsVisible = false;
+
+const section = document.querySelector('.gambling-main');
+
+const observer = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry) => {
+            sectionIsVisible = entry.intersectionRatio > 0.3;
+        });
+    },
+    { threshold: [0, 0.3, 0.6] }
+);
+
+if (section) observer.observe(section);
+
+/* -------------------------------------------------- */
+/* Скролл                                             */
+/* -------------------------------------------------- */
+function onWheel(e) {
+    if (!sectionIsVisible) return;
+
+    // 🔥 вместо dir используем реальную силу скролла
+    let delta = e.deltaY * SCROLL_SENSITIVITY;
+
+    targetRotation += delta;
+
+    // 🔒 ограничиваем вращение
+    targetRotation = Math.max(-MAX_ROTATION, Math.min(MAX_ROTATION, targetRotation));
+
+    targetValue = Math.min(
+        MAX_VAL,
+        Math.max(
+            MIN_VAL,
+            INIT_VAL + targetRotation * VAL_PER_DEG
+        )
+    );
+}
+
+window.addEventListener('wheel', onWheel, { passive: true });
+
+/* -------------------------------------------------- */
+/* Плавность                                          */
+/* -------------------------------------------------- */
+function lerp(a, b, t) {
+    return a + (b - a) * t;
+}
+
+function animate() {
+    currentRotation = lerp(currentRotation, targetRotation, 0.05); // очень плавно
+    currentValue    = lerp(currentValue, targetValue, 0.05);
+
+    circleWrap.style.transform =
+        `translateX(-50%) rotate(${currentRotation}deg)`;
+
+    counter.textContent = currentValue.toFixed(2);
+
+    requestAnimationFrame(animate);
+}
+
+animate();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const buttons = document.querySelectorAll('.identify-click');
+const diagrams = document.querySelectorAll('.identify-diagram');
+
+let current = 0;
 let isAnimating = false;
 
-tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-        const target = tab.dataset.diagram;
+buttons.forEach((btn, index) => {
+    btn.addEventListener('click', () => {
 
-        /* Skip if same tab or mid-animation */
-        if (tab.classList.contains('active') || isAnimating) return;
-
-        const next = document.querySelector(`.identify-diagram[data-diagram="${target}"]`);
-        if (!next) return;
-
+        if (index === current || isAnimating) return;
         isAnimating = true;
 
-        /* ── 1. Update active tab pill ── */
-        tabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
+        const currentEl = diagrams[current];
+        const nextEl = diagrams[index];
 
+        // кнопки
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
 
-        /* ── 3. Exit current block to the LEFT ── */
-        current.classList.remove('is-active');
-        current.classList.add('is-exit');
+        // 1. закрываем текущий (width -> 0)
+        currentEl.style.clipPath = "inset(0 100% 0 0)";
+        currentEl.style.opacity = "0";
 
-        /* ── 4. After exit transition, reset exit block & show next ── */
-        // slight stagger so exit plays first
+        // 2. готовим следующий
+        nextEl.style.transition = "none";
+        nextEl.style.clipPath = "inset(0 100% 0 0)";
+        nextEl.style.opacity = "0";
+
         setTimeout(() => {
-            current.classList.remove('is-exit');
-            /* put it back off-screen right for future re-entry */
-            current.style.transform = '';
-            current.style.opacity   = '';
+            // 3. открываем (width 0 -> 100)
+            nextEl.style.transition = "clip-path 1.5s ease, opacity 1.5s ease";
+            nextEl.style.clipPath = "inset(0 0 0 0)";
+            nextEl.style.opacity = "1";
 
-            /* Trigger next-enter */
-            next.classList.add('is-active');
-            current   = next;
+            current = index;
 
-            /* Unlock after enter transition completes */
             setTimeout(() => {
                 isAnimating = false;
-            }, 750);
+            }, 1500);
 
-        }, 400); // half the exit duration before enter starts
+        }, 1500);
+
     });
 });

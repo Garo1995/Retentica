@@ -37,8 +37,22 @@ header {
     line-height: 21px;
     vertical-align: middle;
     transition: 0.3s;
+    position: relative;
 }
-
+.nav-menu a:after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 1px;
+    transition: 0.3s;
+    background: #FFFFFF;
+}
+.nav-menu a:hover:after{
+    width: 100%;
+}
 
 .btn-book{
     border: 1px solid #5F29B7;
@@ -60,7 +74,11 @@ header {
 .pricing-href-mob{
     display: none;
 }
-
+@media (max-width: 1020px){
+    .header-center {
+        gap: 32px;
+    }
+}
 @media (max-width: 767px){
     .header-center {
         gap: 16px;

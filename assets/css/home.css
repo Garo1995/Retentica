@@ -34,12 +34,11 @@ p{
     color: #FFFFFF;
     transition: 0.3s;
     overflow: hidden;
-
-
     box-shadow: 0px 4px 20px 0px rgba(213, 199, 199, 0.12);
-
 }
-
+.btn:hover{
+    opacity: 0.8;
+}
 
 
 
@@ -77,6 +76,8 @@ p{
     height: 1250px;
     padding-top: 120px;
     padding-bottom: 35px;
+    max-width: 2300px;
+    margin: 0 auto;
 }
 .predict-fon:after{
     content: "";
@@ -86,7 +87,6 @@ p{
     width: 100%;
     height: 200px;
     background: linear-gradient(360deg, #060607 0%, rgba(6, 6, 7, 0) 100%);
-
 }
 .predict-info{
     max-width: 720px;
@@ -209,6 +209,8 @@ p{
 }
 .gambling-main{
     overflow: hidden;
+    margin-top: 140px;
+    padding-bottom: 140px;
 }
 .gambling-main:before{
     content: "";
@@ -273,6 +275,7 @@ p{
     border-radius: 12px;
     position: relative;
     z-index: 2;
+    height: 440px;
 }
 .gambling-boxes img{
     width: 100%;
@@ -292,6 +295,25 @@ p{
     font-weight: 500;
     font-size: 15px;
     line-height: 130%;
+    position: relative;
+    z-index: 1;
+}
+.glam-rocket-anime .gambling-name {
+    background: unset;
+}
+.glam-rocket-anime .gambling-name:before{
+    content: "";
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-image: url("../img/toch-bot.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100px;
+    z-index: 1;
+    border-radius: 0 0 12px 12px;
+
 }
 .gambling-rocket {
     position: absolute;
@@ -300,9 +322,43 @@ p{
     transform: translateX(-50%);
     display: flex;
     width: 130px;
+    z-index: 2;
+}
+.P-video-instalation-js{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+}
+.P-video-instalation-js video{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
 }
 
-.bonus-engine{
+.glam-rocket-anime{
+    background: #000000;
+    border-radius: 12px;
+
+}
+.glam-rocket-anime:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-image: url("../img/topchki.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 124px;
+
+    border-radius: 12px 12px 0 0;
+
+}
+
+.bonus-engine {
     padding: 14px 19px;
     border: 1px solid rgba(181, 116, 247, 0.34);
     background: #0C0E12;
@@ -315,28 +371,43 @@ p{
     overflow: hidden;
 }
 
-
-.bonus-engine span{
+.bonus-engine span {
     font-weight: 500;
     font-size: 13px;
     line-height: 24px;
     color: #FFFFFF;
     opacity: 0.60;
-}
-.bonus-engine strong{
-    font-weight: 400;
-    font-size: 19px;
-    line-height: 24px;
-    color: #FFFFFF;
     display: block;
 }
-.circle-anime{
-    width: 740px;
+
+.bonus-engine strong {
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 38px;
+    color: #FFFFFF;
+    display: block;
+    letter-spacing: -0.5px;
+}
+
+.circle-anime {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     top: 108px;
+    width: 740px;
+    height: 740px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    will-change: transform;
 }
+
+.circle-anime svg {
+    width: 740px;
+    height: 740px;
+}
+
+
 
 .most-opera-main{
     overflow: hidden;
@@ -439,7 +510,9 @@ p{
     max-width: 521px;
     width: 100%;
 }
-
+.most-fon-mobile{
+    display: none;
+}
 .most-opera-right{
     position: absolute;
     top: 225px;
@@ -447,7 +520,9 @@ p{
     max-width: 755px;
     width: 100%;
 }
-
+.most-right-mobile{
+    display: none;
+}
 
 .most-opera-mobile{
     display: none;
@@ -519,10 +594,6 @@ p{
     pointer-events: auto;
 }
 
-
-.slide img{
-    border-radius: 16px;
-}
 
 
 /* --- Steps nav --- */
@@ -826,6 +897,7 @@ p{
     background-image: url("../img/gra-3.png");
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
 }
 .identify-link{
     position: relative;
@@ -852,63 +924,107 @@ p{
     font-weight: 600;
     font-size: 14px;
     line-height: 100%;
-    border: 1px solid transparent;
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: color 0.35s ease;
+    background: unset;
     position: relative;
     user-select: none;
     cursor: pointer;
 }
-.identify-link ul li.active{
-    background: linear-gradient(90deg, #9F8EDC 0%, #B574F7 100%);
-    border: 1px solid #D6ADFF;
 
-
+.identify-link ul li span{
+    display: block;
+    position: relative;
+    z-index: 1;
 }
-
-
+.identify-link ul li:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(90deg, #9F8EDC 0%, #B574F7 100%);
+    height: 100%;
+    transition: 0.35s;
+    opacity: 0;
+    border-radius: 50px;
+}
+.identify-link ul li.active:before{
+    opacity: 1;
+}
 .identify-min {
     position: relative;
+    overflow: hidden;
+    height: 740px;
     width: 100%;
-    margin-top: 40px;
+    background-image: url("../img/diagram-fon.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    max-width: 2200px;
+    margin: 40px auto 0;
 }
-.demo-box{
-    width: 100%;
-}
-.identify-diagram {
-    width: 100%;
+.identify-fon{
     position: relative;
-    display: none;
-    pointer-events: none;
-    transition: 0.3s;
+}
+.identify-fon:before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 196px;
+    height: 100%;
+    background: linear-gradient(270deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+    transform: rotate(-180deg);
+    z-index: 1;
 }
 
-.identify-diagram img {
-    width: 100%;
-    height: auto;
-    display: block;
+.identify-fon:after{
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 196px;
+    height: 100%;
+    background: linear-gradient(270deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+
+    z-index: 1;
+
+}
+
+.identify-diagram {
+    position: absolute;
+    inset: 0;
+
+    /* скрыт (как width: 0) */
+    clip-path: inset(0 100% 0 0);
+    opacity: 0;
+
+    transition: clip-path 1.5s ease, opacity 1.5s ease;
 }
 
 .identify-diagram.is-active {
-    display: flex;
+    /* открыт (как width: 100%) */
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
 }
-
-/*.identify-diagram.is-exit {*/
-/*    opacity: 0;*/
-/*    transform: translateX(-80px);*/
-/*    pointer-events: none;*/
-/*}*/
-
-
-
+.demo-box{
+    height: 100%;
+}
+.demo-box img{
+    width: 100%;
+}
 
 
 .identify-text{
     text-align: center;
     margin-top: 40px;
+}
+.identify-text p{
+    color: #FFFFFF;
 }
 
 
@@ -1354,10 +1470,10 @@ p{
 .video-wrap{
     width: 100%;
     position: absolute;
-    max-width: 1037px;
-    left: 52%;
+    max-width: 1028px;
+    left: 52.5%;
     transform: translateX(-50%);
-    top: -172px;
+    top: -167px;
 }
 .video-wrap:after{
     content: "";
@@ -1658,6 +1774,36 @@ footer:after{
         height: 941px;
 
     }
+    .identify-min {
+        height: 540px;
+    }
+}
+
+@media (max-width: 1399px){
+    .most-opera-fon {
+        bottom: 281px;
+        max-width: 404px;
+    }
+    .most-opera-right {
+        top: 245px;
+        max-width: 650px;
+    }
+
+
+}
+
+@media (max-width: 1299px){
+
+    .most-opera-fon {
+        bottom: 272px;
+        max-width: 422px;
+        left: -101px;
+    }
+    .most-opera-right {
+        top: 249px;
+        max-width: 572px;
+    }
+
 }
 
 
@@ -1749,6 +1895,22 @@ footer:after{
         bottom: -96px;
         height: 349px;
     }
+    .most-opera-fon {
+        bottom: 251px;
+        max-width: 427px;
+    }
+
+    .most-opera-right {
+        top: 238px;
+        max-width: 427px;
+    }
+    .most-opera-timer {
+        max-width: 371px;
+    }
+    .gambling-main {
+        margin-top: 110px;
+        padding-bottom: 100px;
+    }
 
 
 }
@@ -1792,19 +1954,31 @@ footer:after{
         margin: 0 auto;
     }
     .most-opera-timer{
-        margin-top: 50px;
+        margin-top: 190px;
     }
     .most-opera-right {
         top: 368px;
         max-width: 398px;
     }
-    .most-opera-fon {
+    .most-fon-desc {
         display: none;
     }
-    .most-opera-right {
-        top: 259px;
+    .most-fon-mobile{
+        display: block;
     }
-
+    .most-opera-timer {
+        max-width: 409px;
+    }
+    .most-opera-right {
+        top: 389px;
+        max-width: 376px;
+    }
+    .most-opera-fon {
+        bottom: auto;
+        max-width: 188px;
+        left: 0;
+        top: 192px;
+    }
     .heading .word {
         font-size: 42px;
     }
@@ -1834,14 +2008,19 @@ footer:after{
     }
     .identify-link ul li {
         padding: 8px 8px;
-        width: 105px;
+        width: 100%;
         font-size: 11px;
         height: 38px;
     }
     .identify-players {
         padding-top: 100px;
     }
-
+    .identify-min {
+        height: 430px;
+    }
+    .demo-box img {
+        object-fit: cover;
+    }
     .identify-text {
         margin-top: 24px;
     }
@@ -1974,8 +2153,11 @@ footer:after{
     .section-padding {
         padding: 90px 0;
     }
-    .most-opera-right{
+    .most-right-desc{
         display: none;
+    }
+    .most-right-mobile{
+        display: block;
     }
     .most-opera-item {
         width: auto;
@@ -1986,15 +2168,9 @@ footer:after{
         font-size: 70px;
         padding-right: 2rem;
     }
-    .demo-box {
-        width: 100%;
-        height: 426px;
-    }
-
-    .demo-box img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+    .most-opera-right {
+        top: 82px;
+        max-width: 325px;
     }
     .outperforms-campaigns p {
         font-size: 14px;
@@ -2220,14 +2396,20 @@ footer:after{
         font-size: 13px;
     }
 
-
+    .gambling-boxes img {
+        object-fit: cover;
+    }
     .outperforms-wrap {
         flex-direction: column;
         align-items: center;
         gap: 12px;
     }
-
-
+    .gambling-boxes {
+        height: 380px;
+    }
+    .bonus-engine {
+        top: 40px;
+    }
     .outperforms-boxes {
         width: 100%;
         max-width: 450px;
@@ -2236,6 +2418,19 @@ footer:after{
     .outperforms-boxes:last-child {
         border-radius: 12px;
 
+    }
+    .glam-rocket-anime:before {
+        height: 67px;
+    }
+    .gambling-rocket {
+        top: 123px;
+    }
+    .glam-rocket-anime .gambling-name:before {
+        height: 70px;
+    }
+    .bonus-engine strong {
+        font-size: 21px;
+        line-height: 28px;
     }
     .outperforms-boxes ul li {
         padding: 16px 0;
@@ -2248,7 +2443,10 @@ footer:after{
     .improve-prevention {
         padding: 20px 16px;
     }
-
+    .most-opera-fon {
+        max-width: 154px;
+        top: 258px;
+    }
 
     .improve-prevention h4 {
         font-size: 14px;
@@ -2262,7 +2460,10 @@ footer:after{
         max-width: 327px;
         width: 100%;
     }
-
+    .most-opera-right {
+        top: 248px;
+        max-width: 208px;
+    }
     .pays-itself-main:before {
         top: -83px;
         height: 769px;
@@ -2270,6 +2471,11 @@ footer:after{
     .pays-itself-count strong {
         font-size: 24px;
 
+    }
+    .identify-link ul li {
+        width: 111px;
+        font-size: 13px;
+        height: 36px;
     }
     .pays-itself-count p {
         font-size: 13px;
@@ -2327,7 +2533,9 @@ footer:after{
     .submenu p {
         padding: 0 16px 16px;
     }
-
+    .identify-min {
+        height: 355px;
+    }
     .accordion-main:after {
         height: 188px;
     }
@@ -2393,8 +2601,9 @@ footer:after{
     .pays-itself-main {
         margin-top: 80px;
     }
-
-
+    .identify-min {
+        margin: 24px auto 0;
+    }
 
 
 
