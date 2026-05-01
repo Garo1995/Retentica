@@ -35,6 +35,8 @@ p{
     transition: 0.3s;
     overflow: hidden;
     box-shadow: 0px 4px 20px 0px rgba(213, 199, 199, 0.12);
+    white-space: nowrap;
+
 }
 .btn:hover{
     opacity: 0.8;
@@ -135,7 +137,9 @@ p{
     gap: 10px;
     display: flex;
     align-items: center;
+    justify-content: center;
     transition: 0.3s;
+    white-space: nowrap;
 }
 .roi-estmate:hover i{
     transform: translateX(8px);
@@ -635,7 +639,7 @@ p{
     color: #ffffff;
 }
 .step-content{
-    margin-top: 40px;
+    margin-top: 30px;
 }
 /* Progress line */
 .step-line {
@@ -1377,6 +1381,7 @@ p{
     align-items: center;
     justify-content: center;
     transition: 0.3s;
+    white-space: nowrap;
 }
 .btn-arrow i{
     transition: 0.3s;
@@ -1468,10 +1473,9 @@ p{
 }
 
 .video-wrap{
-    width: 100%;
+    width: 1028px;
     position: absolute;
-    max-width: 1028px;
-    left: 52.5%;
+    left: 52%;
     transform: translateX(-50%);
     top: -167px;
 }
@@ -1803,7 +1807,9 @@ footer:after{
         top: 249px;
         max-width: 572px;
     }
-
+    .video-wrap {
+        left: 53.5%;
+    }
 }
 
 
@@ -1876,10 +1882,7 @@ footer:after{
     .step-content {
         margin-top: 24px;
     }
-    .video-wrap {
-        left: 54%;
-        top: -167px;
-    }
+
     .pays-itself-photo {
         top: -23px;
         left: 50%;
@@ -2092,7 +2095,11 @@ footer:after{
     .integration-main {
         padding: 85px 0 150px;
     }
-
+    .video-wrap {
+        left: 53.6%;
+        top: -158px;
+        width: 928px;
+    }
     .integration-boxes {
         max-width: 359px;
         border-radius: 20px;
@@ -2103,11 +2110,6 @@ footer:after{
         margin: 16px 0;
     }
 
-    .video-wrap {
-        left: 54%;
-        top: -166px;
-        width: 122%;
-    }
     .integration-video {
         padding-top: 112px;
     }
@@ -2128,6 +2130,13 @@ footer:after{
 
 
 }
+@media (max-width: 930px){
+    .video-wrap {
+        left: 54.4%;
+        top: -160px;
+
+    }
+}
 @media (max-width: 767px){
     .predict-fon {
         background-image: url(../img/banner-not-mobile.png);
@@ -2145,7 +2154,7 @@ footer:after{
         padding: 20px 16px;
     }
     .gambling-name h4 {
-        font-size: 13px;
+        font-size: 14px;
     }
     .gambling-boxes {
         max-width: 360px;
@@ -2178,7 +2187,7 @@ footer:after{
         max-width: 350px;
     }
     .helps-improve {
-        padding-top: 21px;
+        padding-top: 81px;
         padding-bottom: 70px;
     }
     .pays-itself-cnt {
@@ -2229,8 +2238,7 @@ footer:after{
     }
     .video-wrap {
         left: 56%;
-        top: -161px;
-        width: 163%;
+        top: -158px;
     }
 
 
@@ -2245,9 +2253,7 @@ footer:after{
         padding: 16px 16px;
         gap: 10px;
     }
-    .improve-btn{
-        display: none;
-    }
+
     .privacy-text {
         margin-top: 53px;
     }
@@ -2260,22 +2266,26 @@ footer:after{
         font-size: 24px;
         line-height: 30px;
     }
-
+    .improve-btn {
+        gap: 12px;
+        margin-top: 24px;
+    }
     .predict-info p {
         font-size: 12px;
     }
-
+    .identify-fon:before {
+        width: 90px;
+    }
+    .identify-fon:after {
+        width: 81px;
+    }
     .predict-info {
         gap: 9px;
     }
     .predict-churn {
         gap: 8px;
     }
-    .btn{
-        padding: 8px 40px;
-        font-size: 12px;
-        line-height: 20px;
-    }
+
     .roi-estmate {
         font-size: 12px;
         line-height: 100%;
@@ -2436,7 +2446,9 @@ footer:after{
         padding: 16px 0;
         font-size: 13px;
     }
-
+    .steps-slider {
+        padding-bottom: 80px;
+    }
     .outperforms-wrap:after{
         display: none;
     }
@@ -2487,8 +2499,7 @@ footer:after{
     .btn-arrow {
         padding: 10px 16px;
         gap: 8px;
-        font-size: 12px;
-        line-height: 18px;
+        font-size: 13px;
     }
     .icon-arrow-right {
         width: 16px;
@@ -2520,9 +2531,9 @@ footer:after{
         max-width: 350px;
     }
     .video-wrap {
-        left: 58%;
-        top: -179px;
-        width: 230%;
+        left: 56%;
+        top: -178px;
+        width: 882px;
     }
     .accordion-click h5 {
         font-size: 14px;
@@ -2542,9 +2553,7 @@ footer:after{
     .accordion-main .marquee-wrapper {
         margin-top: 100px;
     }
-    .logo-footer{
-        display: none;
-    }
+
     .footer-main h2 {
         font-size: 24px;
     }
@@ -2553,12 +2562,18 @@ footer:after{
     }
     .footer-main .predict-churn {
         margin-top: 24px;
+        max-width: 354px;
+        width: 100%;
     }
     footer:after{
         display: none;
     }
+    footer {
+        padding: 30px 0 24px;
+    }
     .roi-estmate {
-        padding: 9.5px 16px;
+        padding: 11.5px 16px;
+        font-size: 13px;
     }
     .privacy-text {
         margin-top: 76px;
@@ -2604,7 +2619,51 @@ footer:after{
     .identify-min {
         margin: 24px auto 0;
     }
+    .gambling-main {
+        margin-top: 58px;
+        padding-bottom: 40px;
+    }
+    .predict-info {
+        max-width: 279px;
+    }
+    .btn {
+        padding: 10px 30px;
 
+    }
+    .roi-estmate {
+        padding: 11.5px 13px;
+        width: 100%;
+    }
+    .predict-churn {
+        width: 100%;
+    }
+    .predict-churn   .btn {
+        width: 100%;
+        padding: 10px 25px;
 
-
+    }
+}
+@media (max-width: 480px){
+    .video-wrap {
+        left: 57%;
+        top: -175px;
+        width: 875px;
+    }
+    .identify-min {
+        height: 267px;
+    }
+}
+@media (max-width: 400px){
+    .video-wrap {
+        left: 57%;
+        top: -175px;
+        width: 875px;
+    }
+}
+@media (max-width: 380px){
+    .video-wrap {
+        left: 59%;
+        top: -173px;
+        width: 873px;
+    }
 }

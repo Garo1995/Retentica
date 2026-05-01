@@ -120,16 +120,14 @@ let improveSwiper = new Swiper(".improve-slider", {
             spaceBetween: 12,
         },
         520: {
-            slidesPerView: 1.3,
+            slidesPerView: 1.5,
             slidesPerGroup: 1,
             spaceBetween: 10,
-            loop: true,
         },
         320: {
             slidesPerView: 1.1,
             slidesPerGroup: 1,
             spaceBetween: 10,
-            loop: true,
         },
     },
     navigation: {
@@ -137,15 +135,6 @@ let improveSwiper = new Swiper(".improve-slider", {
         prevEl: ".improve-button-prev",
     },
 });
-
-
-
-
-
-
-
-
-
 
 
 
@@ -233,186 +222,19 @@ updateReveal();
 
 
 
-(function () {
-    let STEP_DURATION = 4000; // ms — сколько длится один шаг
-    let steps = document.querySelectorAll('.step-item');
-    let slides = document.querySelectorAll('.slide');
-    let current = 0;
-    let timer = null;
-    let startTime = null;
-    let rafId = null;
 
-    function goTo(index) {
-        // Убрать активный класс у всех
-        steps.forEach(function (s) {
-            s.classList.remove('active');
-            s.querySelector('.step-line-fill').style.width = '0%';
-        });
-        slides.forEach(function (s) {
-            s.classList.remove('active');
-        });
 
-        current = index;
 
-        steps[current].classList.add('active');
-        slides[current].classList.add('active');
 
-        // Запустить прогресс
-        startTime = performance.now();
-        if (rafId) cancelAnimationFrame(rafId);
-        animateLine();
-    }
 
-    function animateLine() {
-        let fill = steps[current].querySelector('.step-line-fill');
-        let elapsed = performance.now() - startTime;
-        let progress = Math.min(elapsed / STEP_DURATION, 1);
 
-        fill.style.width = (progress * 100) + '%';
 
-        if (progress < 1) {
-            rafId = requestAnimationFrame(animateLine);
-        } else {
-            // Перейти к следующему
-            let next = (current + 1) % steps.length;
-            goTo(next);
-        }
-    }
 
-    // Клик по шагу
-    steps.forEach(function (s, i) {
-        s.addEventListener('click', function () {
-            if (rafId) cancelAnimationFrame(rafId);
-            goTo(i);
-        });
-    });
 
-    // Старт
-    goTo(0);
-})();
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const circleWrap = document.getElementById('circleWrap');
-const counter    = document.getElementById('counter');
-
-const MIN_VAL  = 100;
-const MAX_VAL  = 3999.99;
-const INIT_VAL = 2359.02;
-
-let currentRotation = 0;
-let targetRotation  = 0;
-let currentValue    = INIT_VAL;
-let targetValue     = INIT_VAL;
-
-/* 🔥 сильно уменьшаем влияние */
-const SCROLL_SENSITIVITY = 0.03; // чем меньше — тем медленнее
-const MAX_ROTATION = 40;         // ограничение, чтобы не "перекручивалось"
-
-const VAL_PER_DEG = (MAX_VAL - MIN_VAL) / 180;
-
-/* -------------------------------------------------- */
-/* Видимость блока                                    */
-/* -------------------------------------------------- */
-let sectionIsVisible = false;
-
-const section = document.querySelector('.gambling-main');
-
-const observer = new IntersectionObserver(
-    (entries) => {
-        entries.forEach((entry) => {
-            sectionIsVisible = entry.intersectionRatio > 0.3;
-        });
-    },
-    { threshold: [0, 0.3, 0.6] }
-);
-
-if (section) observer.observe(section);
-
-/* -------------------------------------------------- */
-/* Скролл                                             */
-/* -------------------------------------------------- */
-function onWheel(e) {
-    if (!sectionIsVisible) return;
-
-    // 🔥 вместо dir используем реальную силу скролла
-    let delta = e.deltaY * SCROLL_SENSITIVITY;
-
-    targetRotation += delta;
-
-    // 🔒 ограничиваем вращение
-    targetRotation = Math.max(-MAX_ROTATION, Math.min(MAX_ROTATION, targetRotation));
-
-    targetValue = Math.min(
-        MAX_VAL,
-        Math.max(
-            MIN_VAL,
-            INIT_VAL + targetRotation * VAL_PER_DEG
-        )
-    );
-}
-
-window.addEventListener('wheel', onWheel, { passive: true });
-
-/* -------------------------------------------------- */
-/* Плавность                                          */
-/* -------------------------------------------------- */
-function lerp(a, b, t) {
-    return a + (b - a) * t;
-}
-
-function animate() {
-    currentRotation = lerp(currentRotation, targetRotation, 0.05); // очень плавно
-    currentValue    = lerp(currentValue, targetValue, 0.05);
-
-    circleWrap.style.transform =
-        `translateX(-50%) rotate(${currentRotation}deg)`;
-
-    counter.textContent = currentValue.toFixed(2);
-
-    requestAnimationFrame(animate);
-}
-
-animate();
 
 
 
@@ -483,9 +305,9 @@ buttons.forEach((btn, index) => {
 
             setTimeout(() => {
                 isAnimating = false;
-            }, 1500);
+            }, 800);
 
-        }, 1500);
+        }, 800);
 
     });
 });
