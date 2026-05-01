@@ -282,4 +282,18 @@
         font-size: 13px;
         margin-left: 10px;
     }
+
+    .calculator-boxes:before{
+        background-image: url("../img/calc-fon-left-mob.png");
+        max-width: 342px;
+        top: -46px;
+        left: -25px;
+    }
+
+    .calculator-boxes:after{
+        background-image: url("../img/calc-fon-rigth-mob.png");
+        max-width: 73px;
+        bottom: 21px;
+        right: -45px;
+    }
 }
