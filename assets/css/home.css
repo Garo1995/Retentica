@@ -614,7 +614,7 @@ p{
 }
 
 .step-item {
-    opacity: 0.35;
+    opacity: 0.10;
     transition: opacity 0.4s ease;
     cursor: pointer;
     max-width: 220px;
@@ -1221,6 +1221,28 @@ p{
 }
 .helps-improve-rel{
     margin-top: 60px;
+}
+.helps-improve-rel:before{
+    content: "";
+    position: absolute;
+    left: 0;
+    background: linear-gradient(90deg, #060607 0%, rgba(6, 6, 7, 0) 100%);
+    width: 386px;
+    height: 414px;
+    top: 170px;
+    z-index: 5;
+
+}
+.helps-improve-rel:after{
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 170px;
+    background: linear-gradient(90deg, #060607 0%, rgba(6, 6, 7, 0) 100%);
+    width: 386px;
+    height: 414px;
+    z-index: 5;
+    transform: rotate(180deg);
 }
 .improve-slider{
     overflow: unset;
@@ -2130,8 +2152,13 @@ footer:after{
     }
 
 
+    .helps-improve-rel:before {
+        display: none;
 
-
+    }
+    .helps-improve-rel:after{
+        display: none;
+    }
 }
 @media (max-width: 930px){
     .video-wrap {
@@ -2317,6 +2344,9 @@ footer:after{
     }
     .container {
         padding: 0 16px;
+    }
+    .gambling-main:before {
+        background-position: center;
     }
     .container-large{
         padding: 0 16px;

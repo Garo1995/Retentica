@@ -19,7 +19,6 @@
     background: #0D0F11;
     max-width: 740px;
     width: 100%;
-    gap: 32px;
     border-radius: 22px;
     padding: 32px;
     margin: 10px auto 0;
@@ -52,19 +51,22 @@
     right: -134px;
     z-index: -1;
 }
-
 .run-estimate{
+    gap: 32px;
+    margin-top: 24px;
+}
+.run-estimate-wid{
     max-width: 325px;
     width: 100%;
 }
-.run-estimate h2{
+.calculator-boxes h2{
     font-weight: 600;
     font-size: 32px;
     line-height: 100%;
 }
 .calculator-inp{
-    margin-top: 24px;
     width: 100%;
+    margin-bottom: 22px;
 }
 .calculator-inp small, .scenario-select small{
     color: #FFFFFF;
@@ -102,7 +104,6 @@
 }
 .expected-uplift{
     margin-top: 24px;
-    margin-bottom: 32px;
 }
 .expected-uplift .calculator-inp {
     margin: 0;
@@ -220,19 +221,27 @@
     background-color: #50596f3d;
 
 }
-
+.calculator-boxes .btn{
+    margin-top: 32px;
+}
 
 
 @media (max-width: 767px){
-    .run-estimate h2 {
+    .calculator-boxes h2 {
         font-size: 24px;
     }
     .calculator-boxes {
         max-width: 400px;
-        gap: 32px;
         padding: 23px;
-        flex-direction: column;
         margin-top: 30px;
+    }
+    .expected-uplift {
+        margin-bottom: 0;
+    }
+    .run-estimate {
+        max-width: 100%;
+        gap: 24px;
+        flex-direction: column;
     }
     .run-estimate {
         max-width: 100%;
@@ -241,5 +250,36 @@
         padding: 20px;
         max-width: 100%;
 
+    }
+    .run-estimate-wid {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 570px){
+    .calculator-boxes {
+        padding: 23px 16px;
+    }
+
+   .expected-uplift .calculator-inp small, .expected-uplift  .scenario-select small {
+        font-size: 12px;
+    }
+    .jq-selectbox__select-text {
+        font-size: 13px;
+        padding: 12px 10px;
+    }
+    .jq-selectbox:after {
+        top: 10px;
+        right: 10px;
+        height: 18px;
+        width: 18px;
+    }
+    .scenario-select {
+        width: 124px;
+        margin-left: 16px;
+    }
+    .inp-select {
+        font-size: 13px;
+        margin-left: 10px;
     }
 }
