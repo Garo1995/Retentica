@@ -1605,6 +1605,8 @@ p{
 .accordion{
     gap: 12px;
     margin-top: 60px;
+    position: relative;
+    z-index: 22;
 }
 .accordion-box{
     width: 100%;
