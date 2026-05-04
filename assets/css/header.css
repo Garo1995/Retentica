@@ -22,6 +22,9 @@ header {
 .header-center{
     gap: 84px;
 }
+.logo-mob{
+    display: none;
+}
 .nav-menu ul{
     gap: 29px;
     display: flex;
@@ -55,11 +58,11 @@ header {
 }
 
 .btn-book{
-    border: 1px solid #5F29B7;
+    background-image: url("../img/grad-btn.png");
+    background-repeat: no-repeat;
+    background-size: cover;
     border-radius: 50px;
     padding: 8px 20px;
-    background: #0B0D1080;
-    backdrop-filter: blur(4px);
     font-weight: 600;
     font-size: 13px;
     line-height: 21px;
@@ -67,9 +70,7 @@ header {
     transition: 0.3s;
 }
 .btn-book:hover{
-    background: #5F29B7;
-    color: #FFFFFF;
-
+    opacity: 0.7;
 }
 .pricing-href-mob{
     display: none;
@@ -94,9 +95,18 @@ header {
     }
     .pricing-href-mob{
         display: flex;
+    }
+    .pricing-href-mob a{
+        display: flex;
         font-weight: 600;
         font-size: 13px;
         line-height: 21px;
         color: rgba(255, 255, 255, 1);
+    }
+    .logo-desc{
+        display: none;
+    }
+    .logo-mob{
+        display: block;
     }
 }

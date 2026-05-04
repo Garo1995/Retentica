@@ -13,18 +13,22 @@
     <div class="container-large">
         <div class="header-main G-align-center G-justify-between">
             <div class="header-center G-align-center ">
-                <a href="#" class="logo G-flex"><img src="./assets/img/logo.svg" alt="Retentica"></a>
+                <a href="#" class="logo G-flex">
+                    <img src="./assets/img/logo.svg" class="logo-desc" alt="Retentica">
+                    <img src="./assets/img/logo-mob.svg" class="logo-mob" alt="Retentica">
+                </a>
                 <div class="nav-menu">
                     <ul class="menu-scroll">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Hot it works</a></li>
-                        <li><a href="#">Pricing</a></li>
-                        <li><a href="#">About us</a></li>
+                        <li><a href="#about">About us</a></li>
+                        <li><a href="#how-works">Hot it works</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
                     </ul>
                 </div>
             </div>
             <a href="#" class="btn-book">Book a Demo</a>
-            <a href="./calculator.html" class="pricing-href-mob">Pricing</a>
+            <div class="menu-scroll pricing-href-mob">
+                <a href="#pricing">Pricing</a>
+            </div>
         </div>
     </div>
 </header>
@@ -51,7 +55,7 @@
         </div>
     </div>
 </section>
-<section class="gambling-main ">
+<section id="about" class="gambling-main ">
     <div class="container">
         <div class="gambling-title G-flex-column G-align-center">
             <img src="./assets/img/built-for.svg" alt="Built For" class="animate-on-scroll delay-100">
@@ -1459,7 +1463,7 @@
 </section>
 
 
-<section class="retent-works">
+<section id="how-works" class="retent-works">
     <div class="container">
         <div class="retent-work-tit G-flex-column G-align-center animate-on-scroll delay-200">
             <h2>How Retentica works</h2>
@@ -1614,8 +1618,8 @@
                         <div class="helps-improve-box G-flex">
                             <img src="./assets/img/helps-improve-3.png" alt="improve">
                             <div class="improve-prevention">
-                                <h4>VIP protection</h4>
-                                <p>Escalate high-value players before they disappear</p>
+                                <h4>Friction detection</h4>
+                                <p>Spot players who are leaving because of failed deposits or operational issues</p>
                             </div>
                         </div>
                     </div>
@@ -1674,8 +1678,8 @@
 </section>
 
 
-<section class="integration-main">
-    <div class="integration-content G-flex-column G-align-center">
+<section  class="integration-main">
+    <div id="pricing" class="integration-content G-flex-column G-align-center">
         <div class="integration-title G-flex-column G-align-center">
             <h2>Low-friction integration</h2>
             <p>Retentica is designed to work without replacing your CRM or changing your core platform</p>
@@ -1817,7 +1821,7 @@
             <p>Book a short demo and we’ll show how Retentica could work on your player base and current  retention setup.</p>
             <div class="predict-churn G-align-center">
                 <button class="btn">Book a Demo</button>
-                <a href="./calculator.html" class="roi-estmate">Run ROI estimate <i class="icon-arrow-right"></i></a>
+                <a href="./calculator.html" class="roi-estmate">Get pilot proposal <i class="icon-arrow-right"></i></a>
             </div>
         </div>
         <div class="privacy-text G-center">
