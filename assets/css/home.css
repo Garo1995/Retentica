@@ -1632,28 +1632,43 @@ p{
     font-size: 15px;
     line-height: 100%;
 }
-.accordion-plus{
+.accordion-plus-wrap {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+}
+
+.accordion-plus {
     border: 1px solid rgba(90, 109, 124, 0.25);
-    max-width: 30px;
-    width: 100%;
+    width: 30px;
     height: 30px;
     border-radius: 50%;
-    padding: 6px;
     position: relative;
     transition: 0.3s;
     display: flex;
     align-items: center;
     justify-content: center;
     background: rgba(9, 11, 13, 1);
+    /* Нет border-image здесь — просто тусклый бордер */
+}
 
+/* ─── PLUS BUTTON: OPEN STATE ─── */
+/* Трюк: wrapper с градиентом + padding 1px вместо border-image */
+.open .accordion-plus-wrap {
+    background: linear-gradient(180deg, rgba(90, 109, 124, 0.25) 0%, #B574F7 100%);
+    border-radius: 50%;
+    padding: 1px; /* толщина градиентного бордера */
 }
-.open .accordion-plus{
-    background-image: url("../img/faq-gradient.png");
-    border: 1px solid transparent;
-    background-size: cover;
-    background-repeat: no-repeat;
+
+.open .accordion-plus {
+    border: none; /* убираем стандартный бордер */
+    background: linear-gradient(180deg, #090B0D 0%, #880CCE 100%);
+    width: 28px;
+    height: 28px;
 }
-.accordion-plus:before{
+
+/* ─── КРЕСТ / МИНУС ─── */
+.accordion-plus::before {
     content: "";
     position: absolute;
     width: 10px;
@@ -1662,17 +1677,20 @@ p{
     border-radius: 5px;
     transition: 0.3s;
 }
-.accordion-plus:after{
+
+.accordion-plus::after {
     content: "";
     position: absolute;
     width: 2px;
     height: 10px;
     background: #FFFFFF;
     border-radius: 5px;
-    transition: 0.3s;
+    transition: 0.3s opacity, 0.3s transform;
 }
-.open .accordion-plus:after{
+
+.open .accordion-plus::after {
     opacity: 0;
+    transform: rotate(90deg);
 }
 
 .submenu{
