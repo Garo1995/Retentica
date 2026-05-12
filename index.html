@@ -24,9 +24,10 @@
                     </ul>
                 </div>
             </div>
-            <a href="#" class="btn-book">
+            <button data-val="modal-form"  class="open_modal btn-book">
+
                 <span class="btn-inner">Book a Demo</span>
-            </a>
+            </button>
             <div class="menu-scroll pricing-href-mob">
                 <a href="#pricing">Pricing</a>
             </div>
@@ -41,7 +42,8 @@
                     <h1>Predict churn before players leave.</h1>
                     <p>Retentica helps gambling and betting operators identify at-risk players, trigger the right retention actions, and prove real revenue uplift in 14 days.</p>
                     <div class="predict-churn G-align-center">
-                        <a href="" class="btn">Book a Demo</a>
+                        <button data-val="modal-form" class="open_modal btn">Book a Demo</button>
+
                         <a href="./calculator.html" class="roi-estmate">Run ROI estimate <i class="icon-arrow-right"></i></a>
                     </div>
                 </div>
@@ -1585,7 +1587,8 @@
 
         <div class="outperforms-campaigns G-flex-column G-align-center animate-on-scroll delay-400">
             <p>Your CRM knows how to send campaigns. Retentica knows who needs them and when.</p>
-            <button class="btn">Book a Demo</button>
+            <button data-val="modal-form" class="open_modal btn">Book a Demo</button>
+
         </div>
     </div>
 </section>
@@ -1829,7 +1832,8 @@
             <h2>See how much revenue you’re losing to silent churn</h2>
             <p>Book a short demo and we’ll show how Retentica could work on your player base and current  retention setup.</p>
             <div class="predict-churn G-align-center">
-                <button class="btn">Book a Demo</button>
+                <button data-val="modal-form" class="open_modal btn">Book a Demo</button>
+
                 <a href="./calculator.html" class="roi-estmate">Run ROI estimate <i class="icon-arrow-right"></i></a>
             </div>
         </div>
@@ -1840,6 +1844,45 @@
         </div>
     </div>
 </footer>
+
+
+
+
+
+<div id="modal-form" class="modal" >
+    <div class="modal-content">
+        <div class="modal-form">
+            <div class="close"></div>
+            <img src="./assets/img/book.svg" alt="book">
+            <h3>Book a Demo</h3>
+
+            <form action="">
+                <div class="calculator-inp">
+                    <small>E-mail</small>
+                    <label>
+                        <input type="text" placeholder="name@email.com">
+                    </label>
+                </div>
+                <div class="calculator-inp">
+                    <small>Message</small>
+                    <label>
+                        <textarea placeholder="Hello, World!"></textarea>
+                    </label>
+                </div>
+
+                <div class="modal-form-btn G-flex-column">
+                    <button class="btn G-center">Send a request<i class="icon-arrow-right"></i></button>
+                    <p>Send a request, you accept <a href="#">User Agreement</a></p>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+
+
 
 
 <script src="assets/js/jquery-3.6.4.js"></script>
